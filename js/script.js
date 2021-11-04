@@ -46,6 +46,30 @@ console.log(membriDelTeam);
 
 stampaValori(membriDelTeam)
 
+
+
+
+// creo un evento click che aggiungo al bottone
+document.getElementById("addMemberButton").addEventListener("click", function() {
+    //creo delle costanti con i value del from
+    const foto = document.getElementById("image").value;
+    const nome = document.getElementById("name").value;
+    const ruolo = document.getElementById("role").value;
+
+    // pusho all'interno di membriDelTeam le costanti appena create
+
+    membriDelTeam.push(
+        {
+            foto : foto,
+            nome : nome,
+            ruolo : ruolo
+        }
+    );
+
+    // richiamo la funzione 
+    stampaValori(membriDelTeam);
+    
+})
 //creo una funzione che stampa attraverso un ciclo for i valori di ogni componente del team
 
 function stampaValori(arrayValori) {
@@ -57,7 +81,7 @@ function stampaValori(arrayValori) {
     contenitore.innerHTML = "";
 
     // ciclo for che stamperà tutti i valori degli oggetti
-    for(let valore in membriDelTeam){
+    for(let valore in membriDelTeam ){
         // creo il contenitore della card 
         const card = document.createElement("div");
         // aggiungo la classe
